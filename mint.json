@@ -73,8 +73,9 @@
       "pages": [
         "api-reference/endpoint/add-a-new-activity-type",
         "api-reference/endpoint/delete-a-specific-activity-type",
+        "api-reference/endpoint/retrieve-a-specific-activity-type",
         "api-reference/endpoint/retrieve-all-activity-types",
-        "api-reference/endpoint/retrieve-an-existing-activity-type"
+        "api-reference/endpoint/update-an-existing-activity-type"
       ]
     }
   ],
