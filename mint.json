@@ -73,7 +73,7 @@
       "pages": [
         "Activity Type Endpoints",
         {
-          "group": "The name of the group",
+          "group": "Activity Type Endpoints",
           "pages": [
             "api-reference/endpoint/add-a-new-activity-type",
             "api-reference/endpoint/delete-a-specific-activity-type",
