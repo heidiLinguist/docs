@@ -17,6 +17,7 @@ paths:
         summary: "Register a new activity type"
         post:
             summary: Add a new activity type
+            description: Adds a new activity type to the system. By default, this activity type is set to private visibility, but you can allow others to view and access your activity type by setting it to public visibility.
             requestBody:
                 required: true
                 content:
@@ -37,6 +38,7 @@ paths:
     /view_all_activity_types:
         get:
             summary: Retrieve all activity types
+            description: Returns a list of all activity types in the system that you are allowed to view.
             responses:
                 '200':
                     description: A list of all activity types
@@ -47,6 +49,7 @@ paths:
     /view_activity_type/{activity_type_name}:
         get:
             summary: Retrieve a specific activity type
+            description: Returns the details of the specified activity type. You can only view activity types that you have access to.
             parameters:
                 - name: activity_type_name
                   in: path
@@ -92,6 +95,7 @@ paths:
     /delete_activity_type/{activity_type_name}:
         delete:
             summary: Delete a specific activity type
+            description: Deletes the specified activity type from the system. You can only delete activity types that you have created.
             parameters:
                 - name: activity_type_name
                   in: path
