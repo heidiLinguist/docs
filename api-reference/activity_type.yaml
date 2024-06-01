@@ -1,0 +1,181 @@
+openapi: 3.0.0
+info:
+    title: Activity Types API
+    version: 1.0.0
+    description: API for managing activity types in the learning platform.
+servers:
+    - url: http://127.0.0.1:5001
+    - url: http://localhost:5001
+    - url: https://us-central1-vocabulary-systems-development.cloudfunctions.net
+    - url: http://us-central1-vocabulary-systems-development.cloudfunctions.net
+    - url: https://us-central1-vocabulary-systems-production.cloudfunctions.net
+    - url: http://us-central1-vocabulary-systems-production.cloudfunctions.net
+
+paths:
+    /register_activity_type:
+        post:
+            summary: Add a new activity type
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ActivityTypeCreate'
+            responses:
+                '201':
+                    description: New activity type added
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ApiResponse'
+                '400':
+                    description: Invalid input
+                '409':
+                    description: Activity type already exists
+    /view_all_activity_types:
+        get:
+            summary: Retrieve all activity types
+            responses:
+                '200':
+                    description: A list of all activity types
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ApiResponse'
+    /view_activity_type/{activity_type_name}:
+        get:
+            summary: Retrieve a specific activity type
+            parameters:
+                - name: activity_type_name
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Details of the specified activity type
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ApiResponse'
+                '404':
+                    description: Activity type not found
+    /update_activity_type/{activity_type_name}:
+        post:
+            summary: Update an existing activity type
+            description: Updates the specified activity type by setting the values of the parameters passed. Any parameters not provided will be left unchanged. Note that the activity_type_name cannot be changed!
+            parameters:
+                - name: activity_type_name
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ActivityTypeUpdate'
+            responses:
+                '200':
+                    description: Activity type updated
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ApiResponse'
+                '400':
+                    description: Invalid input
+                '404':
+                    description: Activity type not found
+    /delete_activity_type/{activity_type_name}:
+        delete:
+            summary: Delete a specific activity type
+            parameters:
+                - name: activity_type_name
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Activity type deleted
+                '404':
+                    description: Activity type not found
+
+components:
+    schemas:
+        ActivityTypeBase:
+            type: object
+            properties:
+                description:
+                    type: string
+                    description: Description of the activity
+                binary_result:
+                    type: boolean
+                    description: Indicates if the result can be binary (0 or 1)
+                directionality:
+                    type: string
+                    enum: [active, passive]
+                    description: Whether the activity is active or passive
+                modality:
+                    type: string
+                    enum: [text, speech, sign]
+                    description: Learning modality used
+                interaction_type:
+                    type: string
+                    enum: [match, trace, produce, study]
+                    description: Type of interaction with this learning activity
+                activity_context:
+                    type: string
+                    enum: [translation, synonym, definition, sentence, image, association, form_focus]
+                    description: Context of the activity
+                activity_visibility:
+                    type: string
+                    enum: [public, private]
+                    description: Visibility of the activity type, either public or private
+        ActivityTypeCreate:
+            allOf:
+                - $ref: '#/components/schemas/ActivityTypeBase'
+                - type: object
+                  required:
+                      - activity_type_name
+                      - binary_result
+                      - directionality
+                      - modality
+                      - interaction_type
+                      - activity_context
+                      - activity_visibility
+                  properties:
+                      activity_type_name:
+                          type: string
+                          description: Unique identifier based on the activity type name
+        ActivityTypeUpdate:
+            allOf:
+                - $ref: '#/components/schemas/ActivityTypeBase'
+            example:
+                description: 'A multiple choice activity focusing on synonyms'
+                binary_result: true
+                directionality: 'passive'
+                modality: 'text'
+                interaction_type: 'match'
+                activity_context: 'synonym'
+                activity_visibility: 'private'
+                partner_id: 'partner123'
+        ApiResponse:
+            type: object
+            required:
+                - success
+                - message
+                - data
+            properties:
+                success:
+                    type: boolean
+                    example: true
+                message:
+                    type: string
+                    example: 'Operation complete'
+                data:
+                    type: object
+                    description: Contains the data relevant to the response
+                    allOf:
+                        - $ref: '#/components/schemas/ActivityTypeCreate'
