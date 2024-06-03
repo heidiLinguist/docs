@@ -35,7 +35,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "/introduction"
     },
     {
       "name": "Community",
@@ -51,7 +51,7 @@
   "navigation": [
     {
       "group": "Learner Model Documentation",
-      "pages": ["introduction", "vv_quickstart", "development"]
+      "pages": ["introduction", "big-picture"]
     },
     {
       "group": "Essentials",
