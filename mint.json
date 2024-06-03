@@ -50,7 +50,7 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Learner Model Documentation",
       "pages": ["introduction", "vv_quickstart", "development"]
     },
     {
