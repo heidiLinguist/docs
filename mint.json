@@ -51,7 +51,7 @@
   "navigation": [
     {
       "group": "Learner Model Documentation",
-      "pages": ["introduction", "big-picture"]
+      "pages": ["introduction", "overall-architecture"]
     },
     {
       "group": "Essentials",
