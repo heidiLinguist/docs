@@ -55,12 +55,13 @@
         "introduction",
         "overall-architecture",
         "activity-types",
-        "log-observations"
+        "log-observations",
+        "learner-tracking"
       ]
     },
     {
       "group": "Videos",
-      "pages": ["videos/about-vocab-victor"]
+      "pages": ["videos/about-Vocab-Victor"]
     },
     {
       "group": "API Documentation",
