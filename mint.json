@@ -59,6 +59,10 @@
       ]
     },
     {
+      "group": "Videos",
+      "pages": ["videos/about-vocab-victor"]
+    },
+    {
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
     },
