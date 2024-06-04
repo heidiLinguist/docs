@@ -56,7 +56,8 @@
         "overall-architecture",
         "activity-types",
         "log-observations",
-        "learner-tracking"
+        "learner-tracking",
+        "model-creation"
       ]
     },
     {
