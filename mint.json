@@ -57,7 +57,8 @@
         "activity-types",
         "log-observations",
         "learner-tracking",
-        "model-creation"
+        "model-creation",
+        "zone-words"
       ]
     },
     {
