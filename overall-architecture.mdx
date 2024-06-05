@@ -6,10 +6,12 @@ flowchart TD
     A[fa:fa-pen-to-square Setup Account] --> B[fa:fa-grid-round-2-plus Add your Apps]
     B --> C{{fa:fa-code Configure Activity Types}}
     C --> |Activity Type Name <br> Modality <br> Cue Context <br> Interaction Type <br> Directionality| D[/Wrap Observations /]
+    I(Your App) --> D
     D --> |Timestamp <br> Learner <br> App <br> Activity Type <br> Word <br> Language <br> Result| E[Observations API]
     E --> F[(Vocab Victor Zone DB)]
     F --> G[fa:fa-bolt-lightning Generate Model] 
     G --> H[fa:fa-rocket Get Zone Words!]
+    H --> I
 ```
 
 
@@ -19,9 +21,9 @@ The Vocab Victor Zone API consists of several components that work together to c
 
 - [**Activity Types**](/activity-types): These are the different types of activities that your apps offer to learners. Each activity type has a set of tags which together provide a linguistic-informed taxonomy of the interaction across multiple dimensions. The Vocab Victor team will help you define activity types for your app that capture the nuances of vocabulary acquisition across multiple interactions with a word.
 - [**Observations**](/log-observations): These are the time-stamped interactions each user has with the words in your app. Each observation is linked to an associated activity type. It is critial to log each and every interaction your users have with a vocabulary item. For example, if a user reads a passage, each word in the passage should be logged as an observation. If the user clicks on a word to see its definition, that should be logged as an observation as well.
-- [**Learners**](/learner-tracking): 
-- **Model**: These are the learning models that the API generates for your app. Each model is associated with a different activity type. The model is based on an analysis of all of your app's observations.
-- **Zone Words**: These are the words that the API generates for each learner, for each activity type in your app, based on the learner's patterns. (In the case of a new user, or where scant data is available for a learner, cohort averages are used to fill in the predictions.) The API uses the learner model to determine which words are most beneficial for the learner to engage with next in a given activity type.
+- [**Learners**](/learner-tracking): Your learner's observations are saved using _your_ learner id, which is never shared with other apps or exposed. You may choose to enhance your learner's experience by allowing your users to connect your Vocab Victor Zone model with other apps the learner is using.
+- [**Models**](/model-creation): These are the learning models that the API generates for your app. Each model is associated with a different activity type. The model is based on an analysis of all of your app's observations.
+- [**Zone Words**](/zone-words): These are the words that the API generates for each learner, for each activity type in your app, based on the learner's patterns. (In the case of a new user, or where scant data is available for a learner, cohort averages are used to fill in the predictions.) The API uses the learner model to determine which words are most beneficial for the learner to engage with next in a given activity type.
 
 ## How it works
 
