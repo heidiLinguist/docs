@@ -1,1 +1,32 @@
 Use our observations API to log your learners' activity. It is critical to break down each and every lexical interaction as a separate observation. For example, if the learner reads or writes a passage, each individual word should have its own observation.
+
+<Note>
+An observation is a time stamped record of a single interaction a learner has with a word.
+</Note>
+
+## Observation fields
+You can view the complete observation specification at [observations api](/api-reference/observations), but here is a breakdown of the data to include in each observation:
+
+### Timestamp
+The learner model is a living structure that evolves over time. Timestamps are critical for building the learner's vocabulary journey. They are used heavily in building the learner model. If you are bulk uploading legacy data, be sure the the timestamp refers to the _time the interaction happened_ and not the time of the data upload.
+
+### App
+Each observation happens inside a logged app. You can only add observations to apps you own.
+
+### Learner
+Use your own internal learner id to log the interaction. 
+
+### Word
+The vocabulary item that was engaged with.
+
+### Language
+The two-letter ISO 639-1 code for the target language of the vocabulary item.
+
+### ActivityType
+The activity type that describes the observation.
+
+### Result (1 or 0)
+Some activity types allow binary results, which generally express whether or not the learner got a question correct or completed the activity successfully. Other activity types do not allow binary results (such as a passive activity like reading); in those cases, set result equal to 1. 
+
+At this time result must be binary (either 0 or 1); if you need to express a gradient result please contact the Vocab Victor Zone suppor team.
+
