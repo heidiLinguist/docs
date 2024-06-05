@@ -1,7 +1,7 @@
 Use our observations API to log your learners' activity. It is critical to break down each and every lexical interaction as a separate observation. For example, if the learner reads or writes a passage, each individual word should have its own observation.
 
 <Note>
-An observation is a time stamped record of a single interaction a learner has with a word.
+An observation is a time-stamped record of a single interaction a learner has with a word.
 </Note>
 
 ## Observation fields
@@ -20,13 +20,13 @@ Use your own internal learner id to log the interaction.
 The vocabulary item that was engaged with.
 
 ### Language
-The two-letter ISO 639-1 code for the target language of the vocabulary item.
+The two-letter ISO 639-1 code for the target language of the vocabulary item, such as _en_ or _es_.
 
 ### ActivityType
 The activity type that describes the observation.
 
-### Result (1 or 0)
-Some activity types allow binary results, which generally express whether or not the learner got a question correct or completed the activity successfully. Other activity types do not allow binary results (such as a passive activity like reading); in those cases, set result equal to 1. 
+### Result (0 or 1)
+Some activity types allow binary results, which express whether or not the learner got a question correct or completed the activity successfully. Other activity types do not allow binary results (such as a passive activity like reading); in those cases, set result equal to 1. 
 
 At this time result must be binary (either 0 or 1); if you need to express a gradient result please contact the Vocab Victor Zone suppor team.
 
