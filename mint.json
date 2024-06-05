@@ -23,7 +23,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://vocabvictor.com"
   },
   "tabs": [
     {
@@ -40,7 +40,7 @@
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://app.slack.com/client/T076SJX2JHH/D077FGV5TNU"
     },
     {
       "name": "Blog",
