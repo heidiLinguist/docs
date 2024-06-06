@@ -1,19 +1,19 @@
-The Vocab Victor Zone API is a powerful tool that allows you to create a learning model for the users of your language learning app. This model is based on the learner's interactions with your app and the data you provide to the API. The API uses this data to generate a personalized set of words for each learner, based on their learning patterns.
+The Vocab Victor Zone API is a powerful tool that allows you to create a learner model for the users of your language learning app. This model is based on the learner's interactions with your app and the data you provide to the API. The API uses this data to generate a personalized set of words for each learner, based on their learning patterns.
 
 ## Overall process
+
 ```mermaid
 flowchart TD
     A[fa:fa-pen-to-square Setup Account] --> B[fa:fa-grid-round-2-plus Add your Apps]
     B --> C{{fa:fa-code Configure Activity Types}}
-    C --> |Activity Type Name <br> Modality <br> Cue Context <br> Interaction Type <br> Directionality| D[/Wrap Observations /]
+    C --> |Activity Type Name <br> Modality <br> Cue Context <br> Interaction Type <br> Directionality| <br> Binary Result D[/Wrap Observations /]
     I(Your App) --> D
     D --> |Timestamp <br> Learner <br> App <br> Activity Type <br> Word <br> Language <br> Result| E[Observations API]
     E --> F[(Vocab Victor Zone DB)]
-    F --> G[fa:fa-bolt-lightning Generate Model] 
+    F --> G[fa:fa-bolt-lightning Generate Model]
     G --> H[fa:fa-rocket Get Zone Words!]
     H --> I
 ```
-
 
 ## Components
 
