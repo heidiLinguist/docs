@@ -3,35 +3,44 @@ title: Vocab Victor Zone
 description: "Give your users a personalized learning experience!"
 ---
 
-Vocab Victor Zone lets you hook a vocabulary learning model into your language learning app. Use our API to log your learners' activity. This saves their learning journey in our Google Cloud SQL database. Vocab Victor Zone uses analytics to build a model which is personalized for each user, based on their learning patterns. Use the model to find your learner's _zone words_, the next, best words for each learner, which can inform content you deliver for each activity in your app.
+In educational software, one key challenge is to determine what content to deliver to users.
+
+A learner model is a representation of a learner's knowledge, skills, and learning preferences. The idea is that if you have a good understanding of what the user already knows, you'll have a good idea of what they should learn next.
+
+This is important, because if you try to teach the learner content that is too easy (content they already
+know), the learner will grow bored. If you give them content that is too
+difficult, they may get frustrated and give up.
+
+Vocab Victor Zone is a service for computer assisted language learning tools that builds a personalized vocabulary learner model for each of your users. This model tracks each interaction your users have with each word, and uses cohort averages to estimate knowledge for words the user hasn't seen.
+
+Learners will be able to connect all their language learning apps together using the Vocab Victor Zone learner model. This means that the learner can have a seamless learning journey across multiple applications, each teaching different types of language knowledge.
 
 <img
   className="block dark:hidden"
   src="/images/victorious.png"
-  alt="Hero Light"
+  alt="Vocab Victor Hero"
 />
 <img
   className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
+  src="/images/victorious.png"
+  alt="Vocab Victor Hero"
 />
+
+## How it works
+
+Use our API to log your learners' activity. This saves their learning journey in our Google Cloud SQL database. Vocab Victor Zone uses analytics to build a model which is personalized for each user, based on their learning patterns. Use the model to find your learner's _zone words_, the next, best words for each learner, which can inform content you deliver for each activity in your app.
 
 ## Setting up
 
 Get started from out dashboard with a partner account. This will allow you to access the Vocab Victor Zone API and create your own learning model.
 
 <Steps>
-<Step 
-	title="Create a Partner Account"
-    icon="pen-to-square"
-  >
-    Creating an account is free and we will help you get started! [Create account or login](https://vocabvictor.com)
-</Step>
-<Step 
-	title="Create your apps" 
-	icon= "grid-round-2-plus"
->    
-	Each app must log its own learner observations and query appropriate zone
+  <Step title="Create a Partner Account" icon="pen-to-square">
+    Creating an account is free and we will help you get started! [Create
+    account or login](https://vocabvictor.com)
+  </Step>
+  <Step title="Create your apps" icon="grid-round-2-plus">
+    Each app must log its own learner observations and query appropriate zone
     words for your user. [Manage apps](https://vocabvictor.com)
   </Step>
 </Steps>
