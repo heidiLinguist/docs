@@ -6,7 +6,7 @@ The Vocab Victor Zone API is a powerful tool that allows you to create a learner
 flowchart TD
     A[fa:fa-pen-to-square Setup Account] --> B[fa:fa-grid-round-2-plus Add your Apps]
     B --> C{{fa:fa-code Configure Activity Types}}
-    C --> |Activity Type Name <br> Modality <br> Cue Context <br> Interaction Type <br> Directionality <br> Binary Result | D[/Wrap Observations /]
+    C --> |Activity Type Name <br> Modality <br> Cue Context <br> Interaction Type <br> Directionality <br> Has Binary Result? | D[/Wrap Observations /]
     I(Your App) --> D
     D --> |Timestamp <br> Learner <br> App <br> Activity Type <br> Word <br> Language <br> Result| E[Observations API]
     E --> F[(Vocab Victor Zone DB)]
