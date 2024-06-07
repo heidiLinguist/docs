@@ -1,10 +1,4 @@
-Vocab Victor Zone is based around the concept of _activity types_. These are the different types of activities that your app offers to learners. Activity examples are:
-
-- Reading a passage
-- Clicking on a word to see its definition
-- Writing a sentence
-- Taking a quiz
-- Playing a word game
+Vocab Victor Zone is based around the concept of _activity types_. These are the different types of activities that your app offers to learners, such as reading a passage or taking a quiz.
 
 <Info>
   Vocabulary knowledge is multi-dimensional (Nation, 2001) and is acquired
@@ -14,7 +8,7 @@ Vocab Victor Zone is based around the concept of _activity types_. These are the
 
 Each activity type has a set of tags which together provide a linguistic-informed taxonomy of the learner's interaction with a word across multiple dimensions of lexical knowledge. Because Vocab Victor Zone tracks these interactions across multiple dimensions, it can provide a nuanced understanding of the learner's vocabulary acquisition process.
 
-## Global activity types
+# Global activity types
 
 The following are some of the built-in activity types you can use to log your observations (you can query a complete list using the Activity Types API):
 
@@ -24,7 +18,7 @@ The following are some of the built-in activity types you can use to log your ob
 - **Quiz Produce Word from Definition**: The learner produces the target word from a definition.
 - **Study Word Definition**: The learner studies the definition of a word.
 
-## Custom activity types
+# Custom activity types (taxonomies)
 
 If the activity types in your app do not fit into the above categories, you can create custom activity types by defining the unique taxonomy that describes the activity.
 
@@ -88,7 +82,7 @@ It's critical for the activity type to capture the directionality of the activit
 
 # Taxonomy examples
 
-Here are the tags that make up the taxonomy for the example activity types shown above:
+Here are the tags that make up the taxonomies for the example activity types shown above:
 
 - **Cloze Choose Word in Sentence**
 
@@ -115,8 +109,16 @@ Here are the tags that make up the taxonomy for the example activity types shown
   - Binary Result: true
 
 - **Quiz Produce Word from Definition**
+
   - Modality: text
   - Cue Context: definition
   - Interaction Type: produce
   - Directionality: active (because the target word is produced)
   - Binary Result: true
+
+- **Study Word Definition**
+  - Modality: text
+  - Cue Context: definition
+  - Interaction Type: study
+  - Directionality: passive (because the cue is studied)
+  - Binary Result: false
