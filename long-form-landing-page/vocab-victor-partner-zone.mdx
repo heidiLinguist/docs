@@ -20,7 +20,7 @@ For the hero image, consider an engaging visual that combines the following elem
 <Tooltip tip = "Heift, T. (2008). Modeling variability in CALL. Computer Assisted Language Learning, 21(4), 305–321.">"A learner model is a description of the student’s knowledge and, in the context of intelligent tutoring, its main goal is to guide pedagogical decision-making."</Tooltip>
 </Info>
 
-Vocab Victor Zone's analytics engine examines the learner's interactions with words and creates a predictive model of the learner's vocabulary knowledge. Once the model is created, you can use the API to query for zone words that are appropriate for your learner's desired activity type.
+Vocab Victor Zone's analytics engine examines the learner's interactions with words and creates a predictive model of the learner's vocabulary knowledge. Once the model is created, you can query for zone words that are appropriate for each learner's desired activity type.
 
 ![The Learner Model](../images/learner-model.jpg)
 
@@ -30,11 +30,30 @@ Our vocabulary learner model pinpoints the zone of proximal development (ZPD) fo
 
 ### Enhanced User Retention
 
-By delivering vocabulary at the right difficulty level, our model prevents learners from getting bored with too easy words or frustrated with too difficult words. This balance keeps learners engaged and motivated, reducing the risk of dropout and improving overall retention.
+By delivering vocabulary at the right difficulty level, our model prevents:
+* Learners from getting bored with words that are too easy, or 
+* Frustrated with words that are too difficult. 
+
+This balance keeps learners engaged and motivated, reducing the risk of dropout and improving overall retention.
 
 ### Adaptive Learning Model
 
 Our learner model adapts to each user's unique learning progress, dynamically adjusting to provide personalized recommendations. This continuous adaptation ensures that learners receive the most effective instruction tailored to their current needs.
+
+## Unified Learning Journey
+
+Vocab Victor stands out by allowing learners to connect multiple language learning apps to provide a unified learning journey for vocabulary. For example, a learner might use one app to read articles in a foreign language, another app to practice vocabulary through flashcards, and a third app to engage in conversational practice. Vocab Victor integrates the data from all these apps to track the learner's progress comprehensively and suggest the next best words for the learner to study, ensuring a seamless and cohesive learning experience across different platforms.
+
+![Student using the vocabulary learner dashboard](../images/learner-dashboard.jpg)
+
+### Zone words across multiple applications
+Zone words are different for each activity type, because vocabulary learning is an incremental process. For example, consider this sequence:
+
+- A learner reads a passage, and notices a new word. They may guess at the word's meaning through context, or click on it to see the definition. Now the word is in their ZPD for further meaning exposure and engagement.
+- The learner engages with the word in a matching activity, word game, or multiple choice test. With each such engagement, their knowledge for the word is reinforced and advanced. This pushes the word into the ZPD for more active engagement.
+- Finally, an activity to elicit production is presented, giving the learner a framework to use the word in a sentence or conversation. In vocabulary acquisition, passive knowledge precedes active knowledge. This is an example of why each activity type has its own model and set of zone words.
+
+Because Vocab Victor Zone lets users track their progress across multiple applications, the above sequence could happen across multiple applications, each with different strengths, letting the learner embark on a seamless learning journey!
 
 ### Comprehensive Tracking and Analytics
 
@@ -48,15 +67,14 @@ We offer both private and open models to accommodate your privacy preferences. O
 
 Our well-documented API and robust support make it easy to integrate Vocab Victor into your existing applications. Designed to scale with your needs, our infrastructure supports a wide range of user loads, ensuring optimal performance for your application.
 
-### Unified Learning Journey
 
-Vocab Victor stands out by allowing learners to connect multiple language learning apps to provide a unified learning journey for vocabulary. For example, a learner might use one app to read articles in a foreign language, another app to practice vocabulary through flashcards, and a third app to engage in conversational practice. Vocab Victor integrates the data from all these apps to track the learner's progress comprehensively and suggest the next best words for the learner to study, ensuring a seamless and cohesive learning experience across different platforms.
+
 
 ## Technical Overview
 
 ### Architecture
 
-Our system is built on a scalable and resilient architecture, designed to handle high volumes of data and user interactions. The architecture ensures uptime and reliability, critical for any educational application.
+Our system is built on Google Cloud services, which gives a scalable and resilient architecture, designed to handle high volumes of data and user interactions. The architecture ensures uptime and reliability, critical for any educational application.
 
 ### Model Creation
 
