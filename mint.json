@@ -73,7 +73,7 @@
       "pages": ["api-reference/introduction"]
     },
 	{ "group": "Vocab Victor Partner Zone",
-	  "pages": ["long-form-landing-page"]
+	  "pages": ["long-form-landing-page/vocab-victor-partner-zone"]
 	},
     {
       "group": "Endpoints",
