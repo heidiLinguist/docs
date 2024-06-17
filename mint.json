@@ -29,7 +29,9 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-    }
+    },
+	{ "name": "Long Form Landing Page",
+	  "url": "long-form-landing-page"}
   ],
   "anchors": [
     {
@@ -70,6 +72,8 @@
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
     },
+	{ "group": "Long Form Landing Page",
+	  "pages": ["long-form-landing-page"]}
     {
       "group": "Endpoints",
       "pages": [
