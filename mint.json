@@ -30,7 +30,7 @@
       "name": "API Reference",
       "url": "api-reference"
     },
-	{ "name": "Long Form Landing Page",
+	{ "name": "Vocab Victor Partner Zone",
 	  "url": "long-form-landing-page"
 	}
   ],
@@ -61,8 +61,7 @@
         "log-observations",
         "learner-tracking",
         "model-creation",
-        "zone-words",
-		"long-form-landing-page"
+        "zone-words"
       ]
     },
     {
