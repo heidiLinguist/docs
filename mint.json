@@ -92,7 +92,7 @@
       ]
     }
   ],
-  "openapi": ["/activity_type.yaml"],
+  "openapi": ["/activity_type.yaml", "/observations.yaml"],
   "footerSocials": {
     "x": "https://x.com/vocabvictor",
     "linkedin": "https://www.linkedin.com/company/vocabulary-systems/"
