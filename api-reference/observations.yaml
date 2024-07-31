@@ -1,0 +1,174 @@
+openapi: 3.0.0
+info:
+    title: Vocabulary Learning Observations API
+    version: '1.0'
+
+servers:
+    - url: http://127.0.0.1:5001/zoneapiv1
+    - url: http://localhost:5001/zoneapiv1
+    - url: https://us-central1-vocabulary-systems-development.cloudfunctions.net/zoneapiv1
+    - url: https://us-central1-vocabulary-systems-production.cloudfunctions.net/zoneapiv1
+    - url: https://devapi.vocabvictor.com/zoneapiv1
+    - url: https://api.vocabvictor.com/zoneapiv1
+
+security:
+  - bearerAuth: []
+
+paths:
+    /add_observations:
+        post:
+            summary: Add a list of vocabulary learning observations
+            description: >
+                Allows partners to submit multiple vocabulary learning observations in one request. 
+                If any observation in the list is invalid, the entire request will be rejected. All observations must be for the same app. App must be registered and associated partner must be Active.
+            operationId: addObservations
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                app_id:
+                                    type: string
+                                    format: uuid
+                                    description: The identifier of the app related to this observation.
+                                    example: '34b4c31e-2c9f-4a5a-bbe9-81cb53b435f1'
+                                observations:
+                                    type: array
+                                    maxItems: 256
+                                    items:
+                                        $ref: '#/components/schemas/Observation'
+            responses:
+                '201':
+                    description: Observations added successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    success:
+                                        type: boolean
+                                        example: true
+                                        description: True if observations were added successfully.
+                                    message:
+                                        type: string
+                                        example: 'Observation(s) added successfully.'
+                                        description: A message describing the successful operation.
+                '400':
+                    $ref: '#/components/responses/BadRequest'
+                '401':
+                    $ref: '#/components/responses/Unauthorized'
+                '404':
+                    $ref: '#/components/responses/NotFound'
+                '403':
+                    $ref: '#/components/responses/Forbidden'
+components:
+  schemas:
+    Observation:
+      type: object
+      required:
+        - partner_learner_id
+        - app_id
+        - word_form
+        - lemma
+        - language
+        - activity_type_id
+        - result
+        - timestamp
+      properties:
+        partner_learner_id:
+          type: string
+          description: The partner's internal identifier for the learner. If learner isn't found, it will be added with `UNKNOWN` authorization client (see Learners API for details).
+          example: learner-567
+        word_form:
+          type: string
+          description: The exact text of the word involved in the observation. Note that alternate forms of capitalization, hyphenation, etc. will be stored as a variant of the word form. For example, `United` as in United States is considered a variant of `united`. Therefore take care not to submit a word_form that is capitalized for other reasons, such as the beginning of a sentence. At this time Vocab Victor Zone does not support multi-word expressions.
+          example: cats
+        lemma:
+          type: string
+          description: The lemma or base form of the word involved in the observation.
+          example: cat
+        language:
+          type: string
+          description: The language of the word, using the language's ISO 639-1 two-letter code.
+          example: "en"
+        activity_type_id:
+          type: string
+          description: The identifier of the partner-defined activity type associated with this observation.
+          example: 61ea2766-7c29-4189-870d-52c14e9210f5
+        result:
+          type: integer
+          description: Result of the observation, 0 for incorrect and 1 for correct. (Note - if result type is unary, it should be coded as 1.)
+          example: 1
+        timestamp:
+          type: string
+          format: date-time
+          description: The date and time when the observation was recorded, in ISO 8601 format.
+          example: '2023-11-13T09:00:00Z'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Optional, can specify the format (e.g., JWT, OAuth)
+
+          
+  responses:
+        NotFound:
+            description: The specified resource was not found.
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            success:
+                                type: boolean
+                                example: false
+                            message:
+                                type: string
+                                example: App not found.
+        BadRequest:
+            description: The request was invalid or cannot be otherwise served.
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            success:
+                                type: boolean
+                                example: false
+                                description: False if error in request.
+                            message:
+                                type: string
+                                example: Bad request.
+        Unauthorized:
+            description: The bearer token was not found or is not authenticated to make a request.
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            success:
+                                type: boolean
+                                example: false
+                                description: False if error in request.
+                            message:
+                                type: string
+                                example: Invalid authorization token.
+        Forbidden:
+            description: Forbidden; the action is not permitted.
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            success:
+                                type: boolean
+                                example: false
+                                description: False if not permitted.
+                            message:
+                                type: string
+                                example: 'Partner is not active.'
+                                description: An error message describing the problem
+
